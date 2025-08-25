@@ -1,0 +1,143 @@
+main{
+	
+}
+
+main section.floor2{
+	padding: 120px 0 90px 0;
+}
+
+main section.floor2 .box{
+	margin: 0 auto;
+	width: var(--width);
+	display: flex;
+	justify-content: space-between;
+}
+
+main section.floor2 .box .left{
+	width: 500px;
+	padding-top: 20px;
+}
+
+main section.floor2 .box .left .title{
+	font-family: Poppins-Bold;
+	font-size: 42px;
+	color: #313131;
+}
+
+main section.floor2 .box .left .tip{
+	margin-top: 45px;
+	font-size: 16px;
+	color: #313131;
+}
+
+main section.floor2 .box .left .tag{
+	display: inline-flex;
+	margin-top: 125px;
+	font-size: 20px;
+	color: #ffffff;
+	background-color: var(--color);
+	padding: 5px 20px;
+}
+
+main section.floor2 .box .left .list{
+	margin-top: 20px;
+	padding-left: 5px;
+}
+
+main section.floor2 .box .left .list .item{
+	position: relative;
+	padding-left: 20px;
+	font-size: 18px;
+	color: #313131;
+}
+
+main section.floor2 .box .left .list .item+.item{
+	margin-top: 5px;
+}
+
+main section.floor2 .box .left .list .item::before{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 10px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: #c1a080;
+}
+
+main section.floor2 .box .right{
+	flex: 1;
+}
+
+main section.floor2 .box .right img{
+	display: block;
+	width: 100%;
+}
+
+
+
+
+main section.floor3{
+	position: relative;
+	background-color: #ededed;
+	padding: 90px 0 110px 0;
+	margin-bottom: 100px;
+}
+
+main section.floor3 .box{
+	margin: 0 auto;
+	width: var(--width);
+	display: flex;
+}
+
+main section.floor3 .box .left{
+	width: 370px;
+}
+
+main section.floor3 .box .left div+div{
+	margin-top: 25px;
+}
+
+main section.floor3 .box .right{
+	flex: 1;
+}
+
+main section.floor3 .box .right div+div{
+	margin-top: 5px;
+}
+
+main section.floor3 .box .right .tag{
+	margin-bottom: 25px;
+}
+
+main section.floor3 .box .tag{
+	display: inline-flex;
+	font-size: 20px;
+	color: #ffffff;
+	background-color: var(--color);
+	padding: 5px 20px;
+}
+
+main section.floor3 .box .info{
+	font-size: 18px;
+	color: #666666;
+}
+
+main section.floor3 .box .show .info+.info{
+	margin-top: 10px;
+}
+
+
+main section.floor3 .side{
+	position: absolute;
+	right: 0;
+	top: -200px;
+	z-index: 1;
+	width: 650px;
+}
+
+main section.floor3 .side img{
+	display: block;
+	width: 100%;
+}
