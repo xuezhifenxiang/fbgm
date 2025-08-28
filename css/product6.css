@@ -1,9 +1,3 @@
-main{
-	/* padding-bottom: 200px; */
-	
-}
-
-
 
 main section{
 	position: relative;
@@ -37,13 +31,15 @@ main .box .left{
 main .box .left .title{
 	font-family: Poppins-Bold;
 	font-size: 42px;
+	line-height: 50px;
 	color: #313131;
 }
 
 main .box .left .error{
 	margin-top: 45px;
-	font-size: 18px;
+	font-size: 20px;
 	color: var(--color);
+	font-weight: bold;
 }
 
 main .box .left .tip{
@@ -120,4 +116,66 @@ main .product-list{
 main .product-list img{
 	display: block;
 	width: 100%;
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+	
+	main .product-list{
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	main .product-list{
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	main .product-list{
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	
+	main section{
+		padding: 50px 0 200px 0;
+	}
+	
+	main .box{
+		margin: 0;
+		width: 100%;
+		display: block;
+		padding: 0 var(--padding-side);
+	}
+	
+	main .box .left{
+		width: 100%;
+	}
+	
+	main .box .left .error{
+		margin-top: 35px;
+	}
+	
+	main .box .left .tip br{
+		display: none;
+	}
+	
+	main .box .right{
+		margin-top: 30px;
+		width: 100%;
+	}
+	
+	main .product-list{
+		margin: 0;
+		margin-top: 30px;
+		width: 100%;
+		padding: 0 var(--padding-side);
+	}
+	
 }

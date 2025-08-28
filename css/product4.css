@@ -21,6 +21,7 @@ main section.floor2 .box .left{
 main section.floor2 .box .left .title{
 	font-family: Poppins-Bold;
 	font-size: 42px;
+	line-height: 50px;
 	color: #313131;
 }
 
@@ -134,10 +135,96 @@ main section.floor3 .side{
 	right: 0;
 	top: -200px;
 	z-index: 1;
-	width: 650px;
+	width: 35%;
 }
 
 main section.floor3 .side img{
 	display: block;
 	width: 100%;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1199px) {
+	main section.floor2{
+		padding: 50px 0 90px 0;
+	}
+	
+	main section.floor2 .box{
+		margin: 0;
+		width: 100%;
+		display: block;
+		padding: 0 var(--padding-side);
+	}
+	
+	main section.floor2 .box .left{
+		width: 100%;
+		padding-top: 0;
+	}
+	
+	main section.floor2 .box .left .title{
+		font-size: 42px;
+	}
+	
+	main section.floor2 .box .left .tip{
+		margin-top: 35px;
+		font-size: 16px;
+	}
+	
+	main section.floor2 .box .left .tip br{
+		display: none;
+	}
+	
+	main section.floor2 .box .left .tag{
+		margin-top: 50px;
+	}
+	
+	main section.floor2 .box .right{
+		margin-top: 50px;
+		width: 100%;
+	}
+	
+	
+	main section.floor3{
+		padding: 30px var(--padding-side) 60px var(--padding-side);
+		margin-bottom: 100px;
+	}
+	
+	main section.floor3 .box{
+		margin: 0;
+		width: 100%;
+		display: block;
+	}
+	
+	main section.floor3 .box .left{
+		width: 100%;
+	}
+	
+	main section.floor3 .box .left div+div{
+		margin-top: 15px;
+	}
+	
+	main section.floor3 .box .left .tag{
+		margin-top: 35px;
+	}
+	
+	main section.floor3 .box .right{
+		width: 100%;
+		margin-top: 35px;
+	}
+	
+	main section.floor3 .box .right .tag{
+		margin-bottom: 15px;
+	}
+	
+	
+	main section.floor3 .side{
+		top: 0px;
+		width: 45%;
+	}
+	
 }

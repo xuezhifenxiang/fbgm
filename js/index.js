@@ -19,11 +19,12 @@ var floor2Swiper = new Swiper('#floor2-swiper', {
 });
 
 var floor5TranslateY = 0;
+var floor5MenuHeight = $("main .floor5 .menu .item").height();
 var floor5Swiper = new Swiper('#floor5-swiper', {
 	direction: 'horizontal',
 	loop: true,
 	autoplay: {
-		delay: 3000
+		delay: 30000
 	}
 });
 floor5Swiper.on('slideChangeTransitionEnd', function(e) {
@@ -39,10 +40,10 @@ floor5Swiper.on('slideChangeTransitionEnd', function(e) {
 		floor5TranslateY = 0;
 	}
 	if(Number(index) === 5){
-		floor5TranslateY -= 120 * 5;
+		floor5TranslateY -= floor5MenuHeight * 5;
 	}
 	if(Number(index) === 10){
-		floor5TranslateY -= 120 * 2;
+		floor5TranslateY -= floor5MenuHeight * 2;
 	}
 	$("#floor5-menu").css("transform", `translateY(${ floor5TranslateY }px)`);
 });
@@ -59,15 +60,15 @@ $("#floor5-menu-prev").click(function(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	if(floor5TranslateY !== 0){
-		floor5TranslateY += 120;
+		floor5TranslateY += floor5MenuHeight;
 		$("#floor5-menu").css("transform", `translateY(${ floor5TranslateY }px)`);
 	}
 });
 $("#floor5-menu-next").click(function(e) {
 	e.preventDefault();
 	e.stopPropagation();
-	if(floor5TranslateY !== -840){
-		floor5TranslateY -= 120;
+	if(floor5TranslateY !== floor5MenuHeight * -7){
+		floor5TranslateY -= floor5MenuHeight;
 		$("#floor5-menu").css("transform", `translateY(${ floor5TranslateY }px)`);
 	}
 });
