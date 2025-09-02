@@ -41,8 +41,8 @@ $(".customer-service").click(function(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	checkApp(
-		`whatsapp://send?phone=56975153746&text=${encodeURIComponent(window.location.href)}`,
-		`https://web.whatsapp.com/send?phone=56975153746&text=${encodeURIComponent(window.location.href)}`,
+		`whatsapp://send?phone=56975153746&text=${encodeURIComponent("Gracias por comunicarte con *FBG Decomaterial*. ¿De dónde te comunicas, para darte una mejor asesoría")}`,
+		`https://web.whatsapp.com/send?phone=56975153746&text=${encodeURIComponent("Gracias por comunicarte con *FBG Decomaterial*. ¿De dónde te comunicas, para darte una mejor asesoría")}`,
 		isAndroid() ? 'https://play.google.com/store/apps/details?id=com.whatsapp' :
 		'https://apps.apple.com/us/app/whatsapp-messenger/id310633997'
 	);
@@ -53,8 +53,8 @@ $("#footer-app img").click(function(e) {
 	e.stopPropagation();
 	if($(this).data("name") === "facebook"){
 		checkApp(
-		    `fb://profile/fbg.decomaterial`, 
-		    `https://www.facebook.com/fbg.decomaterial`,
+		    `fb://profile/@fbg.decomaterial`, 
+		    `https://www.facebook.com/@fbg.decomaterial`,
 		    isAndroid() ? 'https://play.google.com/store/apps/details?id=com.facebook.katana' : 
 		                 'https://apps.apple.com/us/app/facebook/id284882215'
 		);
@@ -69,8 +69,8 @@ $("#footer-app img").click(function(e) {
 	}
 	if($(this).data("name") === "tiktok"){
 		checkApp(
-		    `tiktok://@fogdecomaterial`,
-		    `https://www.tiktok.com/@fogdecomaterial`,
+		    `tiktok://@fbgdecomaterial`,
+		    `https://www.tiktok.com/@fbgdecomaterial`,
 		    isAndroid() ? 'https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically' : 
 		                 'https://apps.apple.com/us/app/tiktok/id835599320'
 		);
