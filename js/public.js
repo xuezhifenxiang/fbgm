@@ -53,8 +53,8 @@ $("#footer-app img").click(function(e) {
 	e.stopPropagation();
 	if($(this).data("name") === "facebook"){
 		checkApp(
-		    `fb://profile/@fbg.decomaterial`, 
-		    `https://www.facebook.com/@fbg.decomaterial`,
+		    `fb://profile/61579884186157`, 
+		    `https://www.facebook.com/fbg.decomaterial`,
 		    isAndroid() ? 'https://play.google.com/store/apps/details?id=com.facebook.katana' : 
 		                 'https://apps.apple.com/us/app/facebook/id284882215'
 		);
@@ -68,33 +68,56 @@ $("#footer-app img").click(function(e) {
 		);
 	}
 	if($(this).data("name") === "tiktok"){
-		checkApp(
-		    `tiktok://@fbgdecomaterial`,
-		    `https://www.tiktok.com/@fbgdecomaterial`,
-		    isAndroid() ? 'https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically' : 
-		                 'https://apps.apple.com/us/app/tiktok/id835599320'
-		);
+		showTip("正在跳转应用...");
+		setTimeout(() => {
+			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				const tiktokName = encodeURIComponent('fbgdecomaterial');
+				// TikTok官方Scheme (Android/iOS通用)
+				const tiktokUrl = `snssdk1233://user/profile/${tiktokName}`;
+				// 备用Scheme (不同版本可能不同)
+				const tiktokUrls = [
+					`tiktok://user?username=${tiktokName}`,
+					`musically://user?username=${tiktokName}`,
+					`aweme://user/profile/${tiktokName}`
+				];
+				const tiktokWebUrl = `https://www.tiktok.com/@${tiktokName}`;
+				window.location.href = tiktokUrl;
+				setTimeout(function() {
+					if (!document.hidden) {
+						// 尝试备用Scheme
+						$.each(tiktokUrls, function(index, scheme) {
+							setTimeout(function() {
+								window.location.href = scheme;
+							}, index * 200);
+						});
+						// 最终跳转网页版
+						setTimeout(function() {
+							if (!document.hidden) {
+								window.location.href = tiktokWebUrl;
+							}
+						}, tiktokUrls.length * 200 + 200);
+					}
+				}, 800);
+			} else {
+				window.open(tiktokWebUrl, '_blank');
+			}
+		}, 500);
 	}
 });
 
 function checkApp(appScheme, webUrl, storeUrl) {
 	showTip("正在跳转应用...");
-	const iframe = $('<iframe>', {
-		src: appScheme,
-		css: {
-			display: 'none'
-		}
-	}).appendTo('body');
-	setTimeout(function() {
-		iframe.remove();
-		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-		if (isMobile) {
-			showTip("未检测到应用，正在跳转下载...");
-			setTimeout(function() {
-				window.location.href = storeUrl;
-			}, 1500);
+	setTimeout(() => {
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			window.location.href = appScheme;
+			setTimeout(() => {
+				if (!document.hidden) {
+					showTip("未检测到应用，正在跳转下载...");
+					window.location.href = storeUrl;
+				}
+			}, 500);
 		} else {
-			window.location.href = webUrl;
+			window.open(webUrl, '_blank');
 		}
 	}, 500);
 }
